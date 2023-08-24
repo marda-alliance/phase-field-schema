@@ -7,7 +7,7 @@ Organizational material for the MaRDA working group focused on developing and im
 - *[Daniel Wheeler](https://www.nist.gov/people/daniel-wheeler), NIST* (`daniel.wheeler@nist.gov`)
 - *[Trevor Keller](https://www.nist.gov/people/trevor-keller), NIST* (`trevor.keller@nist.gov`)
 
-## Paricipants
+## Participants
 
 - *[Vahid Attari](https://arroyavelab.tamu.edu/people/vahid-attari/), Texas A&M University* (`attari.v@tamu.edu`)
 - *[Stephen DeWitt](https://www.ornl.gov/staff-profile/steve-j-dewitt), ORNL* (`dewittsj@ornl.gov`)
