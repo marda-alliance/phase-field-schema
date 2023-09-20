@@ -40,4 +40,3 @@ See [ideas.md]
 
  - [Data Dictionaries WG](https://github.com/marda-dd/docs)
  - [MGI JSON Schema](https://github.com/usnistgov/mgi-json-schema/blob/main/ABOUT.md)
- -
