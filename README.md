@@ -30,11 +30,12 @@ If you would like to join this working group then please contact one of the grou
 
 ## Proposal
 
-See [proposal.md]
+See [proposal document](./proposal.md)
 
 ## Ideas
 
-See [ideas.md]
+[Scratch document](./ideas.md) with laundry list of ideas, use cases,
+schema items etc.
 
 ## Relevant Related Materials
 
