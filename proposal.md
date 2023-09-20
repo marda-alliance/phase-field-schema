@@ -23,73 +23,86 @@ research community explicity". In particular, as described in the
 previous sections, this approach enables researchers to query for
 datasets that are currently hard to find. Currently, the PFHub project
 uses [its own lightweigh
-ontolgoy](https://github.com/usnistgov/pfhub-schema) to categorize and
+ontology](https://github.com/usnistgov/pfhub-schema) to categorize and
 compare phase field results for the benchmark problems published by
 the CHiMaD phase field workshop participants. This takes the form of a
 small YAML file with links to relevant raw or processed tabular
-data. The data is archived with the YAML file alongside and then this
-link is provided to the PFHub project. We propose a similkar approach
-for all archived phase field data.
+data. The data is archived with the YAML file alongside and the
+associated link is provided to the PFHub project. We propose a similar
+approach for archiving any phase field data outputs (not just those
+from the PFHub benchmarks).
 
 The main aim of the working group is to provide an ontology or schema
-to describe phase field simulations and the correspoinding data. This
+to describe phase field simulations and the corresponding data. This
 might include a simple link to a problem definition, a description of
-the numerical approach, computational resources, categorization of the
-physical model as well as links and descriptions of the data files.
-As an aside, it is worth noting that the metadata and provenance
-issues for storing simulation data effectively have not been widely
-addressed by the materials data community. Clearly, a successful
-approach to these issues within the phase field community could be
-disseminated into other sub-fields of materials science.
+the numerical approach, computational resources used during the
+simulations, categorization of the physical model as well as links and
+descriptions of the data files.  As an aside, it is worth noting that
+the metadata and provenance issues for storing simulation data
+effectively have not been widely addressed by the materials data
+community. Clearly, a successful approach to these issues within the
+phase field community could be disseminated into other sub-fields of
+materials science.
 
 ## Work Plan
 
 The main aim of the working group is to generate a lightweight
-ontogolgy. This approach assuming the researcher is motivated to
-publish raw data, is only a minimal barrier to the process of data
-archiving.  The main hurdle for the researcher is generating the YAML
-file. The working group would aim to provide resources via templates,
-web form and command line tools to help with this process. The main
-steps in the work plan are
+ontology. However, this presents a small, but not insignificant hurdle
+for the researcher publishing phase field data To help with this the
+working group aims to provide resources via templates, web form and
+command line tools to help with this process. The main steps in the
+work plan are:
 
 1. **Generate and finalize an initial schema**:
-  - Use exisint PFHub linkml repo to start
+  - Use the [existing PFHub LinkML
+    repository](https://github.com/usnistgov/pfhub-schema) as a basis
+    for generating the schema.
+  - Determine use cases (how would other researcher use phase field data).
   - Finalize a schema over first few months of WG
-  - Share schema at relevant meetings to get feedback such as CHiMaD phase field meeting
 
 2. **Implement web tool, templates or command line to generate schema files**
-  - Like codemeta.json
-  - Generate prefilled examples of the YAML / JSON file
-  - Implement in exisisting codes to dump out a phase-field.json with
-    the data???
-  - co-opt exisiting or use new command line tool to query files and
-    some question answer templates and push files to zenodo or similar
-    service
+  - Generate a web tool for generating schema files similar to [codemeta.json]()
+  - Generate prefilled examples of the YAML / JSON files.
+  - Co-opt existing or use new command line tool to query GitHub, ask
+    questions, populate templates and push entries to Zenodo.
+  - A possible long term goal would be a phase field registry similar to PFHub.
 
-3. **Examples**
+3. **Develop working examples**
+  - An example using an existing PFHub benchmark result and integrated
+    into the PFHub registry.
+  - An example using a study of numerical convergence using a series of
+    simulations at varying discretizations.
+  - An example using a phase field research result and then a
+    secondary analysis with data aggregation post-processing from the
+    saved raw data.
 
 4. **Approach wider phase field community for feedback**
+  - Present examples and tools at CHiMaD phase field workshops
+  - Present same at the MaRDA meeting
+  - Present at larger conference.
+  - Publicaton describing schema and case study examples.
 
-
-
-
-
-
-- Finalize an initial schema and format similar to the existing PFHub schema, but more complete
-- Generate web tool, templates and command line tool to generate metadata ontology files
-- Generate archived examples on a variety of data archive sites using PFHub benchmarks
-- Generate compelling data aggregation data view case study from the above examples to demonstrate the advantages of the proposed approach
-- Approach the wider phase field community to garner interest and provide feedback
 
 ### Goals and Expected Impact
 
- - A schema generated by LinkML or similar tool in variety of file formats
- - Case study and tools as outlined above
- - Report from the wider phase field community
+ - Initial goal/impact would be to have the phase field schema used by
+   at least a handful of researchers.
+ - The PFHub registry switching over to register other phase field
+   results beyond the benchmarks and displaying results in a table or
+   visually compelling way
+ - Schema is widely used within the phase field community to publish results to
+   generate FAIR content.
+ - Secondary uses of the published phase field data to generate phase
+   field AI surrogate models.
+ - Other materials science communities adopting standard for
+   simulation data.
 
 ### Deliverables
 
-Within 12 months of the commencement of the working group, we will deliver
+Within 18 months of the commencement of the working group, we will
+deliver:
 
-- A Working Group Note, published on the MaRDA Alliance website including some feedback from wider phase field community
-- Implemented examples of usage and data aggregation as outlined above.
+ - A Working Group Note, published on the MaRDA Alliance website
+   including some feedback from wider phase field community -
+ - Implemented working examples as outlined in part 3 of the [Work
+   Plan](#Work-Plan) above.
