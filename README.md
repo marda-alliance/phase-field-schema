@@ -26,7 +26,7 @@ If you would like to join this working group then please contact one of the grou
 
 1. [Hackpad from preliminary meeting](https://hackmd.io/i0_rypRqS5WU_I2sI4W2kg), 2023-05-23
 1. [Slides from presentation at Phase Field Working Group](https://slides.com/danielwheeler-1/phase-field-schema-marda), 2023-08-16
-1. To be determined
+1. [First WG meet](./meeting-minutes/meet-002_2023-09-21.md)
 
 ## Proposal
 
