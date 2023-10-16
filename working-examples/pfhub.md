@@ -136,5 +136,5 @@ in a prospective schema.
 	- DOI of output files
 
 
-[SHARING]: https://academic.oup.com/gigascience/article/8/11/giz095/5611001?login=false
+[SHARING]: https://doi.org/10.1093/gigascience/giz095
 [CODEMETA]: https://codemeta.github.io/terms/
