@@ -7,7 +7,7 @@ phase field benchmarking project?
 
 ## Context
 
-In essence, at the core of the PFhub project is a registry of phase
+In essence, at the core of the PFHub project is a registry of phase
 field results for each phase field benchmark specification. The goal
 of the registry is to provide quality assurance to phase field codes
 by providing adequate accuracy and uncertainty quantification for
@@ -22,7 +22,7 @@ file behaves as the model (or schema) where all the fields required by
 PFHub must be defined. The controller is a Python utility that can
 read the model and, thus, the data and then aggregate the data into
 dataframes for the view. The view takes those dataframes and displays
-the aggregated data in Jupyter notebooks. The (MVC) paradigm depends
+the aggregated data in Jupyter notebooks. The MVC paradigm depends
 crucially on how the model is defined and the inability to specify a
 more complete model has hindered the PFHub project in a number of
 ways.
@@ -68,73 +68,72 @@ enumerated as follows:
 
 The following are specific details for the community schema that would
 address the above issues. A useful publication to help with this is
-[*Sharing interoperable workflow provenace*][SHARING]. It identifies 5
-broad categories of data (the problem specification is included as a
+[*Sharing interoperable workflow provenance*][SHARING]. It identifies
+5 broad categories of data (the problem specification is included as a
 separate category here).
 
- - **Problem specification**: a link to the benchmark specification in
-   the case of PFHub. For other applications this may need to be more
-   complete.
- - **Retrospective provenance metadata**: descriptions of metadata
-   that can only be gathered during or after a simulation event.
- - **Prospective provenance metadata**: large amount of metadata known
-   before the simulation.
- - **Data sharing**: a description of post-processed and raw data for
-   each problem specification in the case of the benchmarks.
- - **Environment execution**: possible inclusion of an execution
-   container, software description and input files
- - **Findability**: links to relevant repositories and DOI of shared
-   data
+- **Problem specification**: a link to the benchmark specification in
+  the case of PFHub. For other applications this may need to be more
+  complete.
+- **Retrospective provenance metadata**: descriptions of metadata that
+  can only be gathered during or after a simulation event.
+- **Prospective provenance metadata**: large amount of metadata known
+  before the simulation.
+- **Data sharing**: a description of post-processed and raw data for
+  each problem specification in the case of the benchmarks.
+- **Environment execution**: possible inclusion of an execution
+  container, software description and input files
+- **Findability**: links to relevant repositories and DOI of shared
+  data
 
 The following bullets outline specific fields that might be included
 in a prospective schema.
 
 - **Problem specification**:
-	- DOI link to a problem specification
-	- Keywords related to the phase field application and typically
-      used for materials ontologies (e.g. "additive-manufacturing" or
-      "cobalt-alloy")
-	- A phase field equation category (e.g. "cahn-hilliard" or
-      "allen-cahn")
+  - DOI link to a problem specification
+  - Keywords related to the phase field application and typically used
+    for materials ontologies (e.g. "additive-manufacturing" or
+    "cobalt-alloy")
+  - A phase field equation category (e.g. "cahn-hilliard" or
+    "allen-cahn")
 - **Retrospective provenance metadata**:
-	- Memory usage, run time
-	- mesh actually used, degrees of freedom
+  - Memory usage, run time
+  - mesh actually used, degrees of freedom
 - **Prospective provenance metadata**:
-	- Computer architectures, nodes, threads etc
-	- Control parameter settings, command line options, environment
-      variables
-	- Numerical approach
-		- meshing strategy, nominal degress of freedom
-		- non-linear solver strategy
-		- linear solver strategy
-		- time-stepping strategy
-		- discretization strategy
-			- expected order of accuracy
+  - Computer architectures, nodes, threads etc
+  - Control parameter settings, command line options, environment
+    variables
+  - Numerical approach
+    - meshing strategy, nominal degrees of freedom
+    - non-linear solver strategy
+    - linear solver strategy
+    - time-stepping strategy
+    - discretization strategy
+      - expected order of accuracy
 - **Data Sharing**:
-	- Suggested naming conventions, formats for
-		- time
-		- phase field global quantities
-		- field data
-	- Suggested storage formats
-	- URL or local paths to data files
-	- DOI of data files
-	- Domain / mesh file details if relevant for reading data
-	- Formatting details
+  - Suggested naming conventions, formats for
+    - time
+    - phase field global quantities
+    - field data
+  - Suggested storage formats
+  - URL or local paths to data files
+  - DOI of data files
+  - Domain / mesh file details if relevant for reading data
+  - Formatting details
 - **Environment Execution**:
-	- Link to software framework
-      ([Codemeta][CODEMETA]) + repository +
-      version
-	- Facilitate execution
-		- Link to container image
-		- Link to environment generation files
-          (e.g. `environment.yml`, `shell.nix` or `Dockerfile`)
-	- Link to relevant input files + commit ID
-	- implementation repository link  + commit ID
+  - Link to software framework
+    ([Codemeta][CODEMETA]) + repository +
+    version
+  - Facilitate execution
+    - Link to container image
+    - Link to environment generation files
+      (e.g. `environment.yml`, `shell.nix` or `Dockerfile`)
+  - Link to relevant input files + commit ID
+  - implementation repository link  + commit ID
 - **Findability**:
-	- Implementation repository link + commit ID
-	- DOI of implementation repository
-	- DOI of output files
-
+  - Implementation repository link + commit ID
+  - DOI of implementation repository
+  - DOI of output files
 
 [SHARING]: https://doi.org/10.1093/gigascience/giz095
 [CODEMETA]: https://codemeta.github.io/terms/
