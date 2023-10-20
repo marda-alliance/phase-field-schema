@@ -51,3 +51,7 @@ work plan are:
    - Present same at the MaRDA meeting
    - Present at larger conference.
    - Publication describing schema and case study examples.
+
+<!-- links -->
+[code-gen]: https://codemeta.github.io/codemeta-generator/
+[pfhub-schema]: https://github.com/usnistgov/pfhub-schema
