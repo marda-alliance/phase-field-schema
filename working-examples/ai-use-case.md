@@ -47,7 +47,7 @@ is critical to improve its uptake for materials design.
 - Has the data been post-processed to a lower dimension (with
   autoencoder, 2-point stats or PCA)
 
-### Solution and Recommendation
+## Solution and Recommendation
 
 - Describe a series of data sets with a single entry wildcard
   - What is varying across the data sets?
