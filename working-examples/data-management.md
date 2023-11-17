@@ -2,7 +2,7 @@
 
 ## Problem Statement
 
-How could a research group coordinate and pracitce FAIR principles
+How could a research group coordinate and practice FAIR principles
 using a community schema standard?
 
 ## Context
@@ -24,10 +24,10 @@ An important aspect of this is finding previous simulations based on
 aspects of the problem specification. This is a major difference from
 other use cases. The problem specification becomes more important as
 the problem specification is unlikely to be written up or published in
-an archived location. Also, a reseach group will have vast bramble of
-archived simuatlions on disk so searching the schema for meaningful
+an archived location. Also, a research group will have vast bramble of
+archived simualations on disk so searching the schema for meaningful
 results (e.g. results of a similar character based on parameter values
-or dervied quantity) becomes important.
+or derived quantity) becomes important.
 
 ## Schema Solutions
 
