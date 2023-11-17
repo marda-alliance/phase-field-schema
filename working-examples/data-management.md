@@ -10,24 +10,25 @@ using a community schema standard?
 A materials research group with multiple members participating in
 projects might have some members running phase field simulations and
 some working on other aspects of materials design, but collaborating
-with the phase field practitioners in some way. In this scenario, it is
-important for the group to have a plan to archive each individual or
-series of phase field simulation in a coherent way to improve research
-coordination. Furthermore, having an effective archive of past
-simulations allows future member of the group to have a better groups
-of previous work and improves institutional memory.
+with the phase field practitioners in some way. In this scenario, it
+is important for the group to have a plan to archive each individual
+or series of phase field simulations in a coherent way to improve
+research coordination. Furthermore, having an effective archive of
+past simulations allows future member of the group to have a better
+grasp of previous work and improves institutional memory.
 
 
 # Key Issues
 
-An important aspect of this is finding previous simulations based on
-aspects of the problem specification. This is a major difference from
-other use cases. The problem specification becomes more important as
-the problem specification is unlikely to be written up or published in
-an archived location. Also, a research group will have vast bramble of
-archived simualations on disk so searching the schema for meaningful
-results (e.g. results of a similar character based on parameter values
-or derived quantity) becomes important.
+An important aspect of this use case is finding previous simulations
+based on aspects of the problem specification. This is a major
+difference from other use cases. The problem specification becomes
+more important as the problem specification is unlikely to be written
+up or published in an archived location. Also, a research group will
+have a vast bramble of archived simulations on disk so using the
+schema to search for meaningful results (e.g. results of a similar
+character based on parameter values or derived quantity) becomes
+important.
 
 ## Schema Solutions
 
