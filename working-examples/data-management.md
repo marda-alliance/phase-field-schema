@@ -48,19 +48,19 @@ important.
       spherical shell
     - A description?
     - Link to a geometry schema file or STL
-    - Material: This is somewhat defined variables and parameters of
-      the model applied to a specific domain
-      - part of problem spec
-      - property values
-      - text about material
-      - look at other materials schema for this
-    - Physics:
-      - Elastic energy, electric energy, etc. It is practically
-        defined by the equations you use. However, it makes it easier
-        to understand what the model tries to do at a glance.
-      - *Initial conditions*
-      - *Boundary Conditions*
-      - *Parameter values*
+  - Material: This is somewhat defined variables and parameters of
+    the model applied to a specific domain
+    - part of problem spec
+    - property values
+    - text about material
+    - look at other materials schema for this
+  - Physics:
+    - Elastic energy, electric energy, etc. It is practically
+      defined by the equations you use. However, it makes it easier
+      to understand what the model tries to do at a glance.
+    - *Initial conditions*
+    - *Boundary Conditions*
+    - *Parameter values*
 - **Mesh**:
   - Based on dimensionality, this may vary. 
 - **Solver**: 
