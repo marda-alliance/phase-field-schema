@@ -13,6 +13,7 @@ Organizational material for the MaRDA working group focused on developing and im
 - *[Stephen DeWitt](https://www.ornl.gov/staff-profile/steve-j-dewitt), ORNL* (`dewittsj@ornl.gov`)
 - *[Trevor Keller](https://www.nist.gov/people/trevor-keller), NIST* (`trevor.keller@nist.gov`)
 - *[Kasra Momeni](https://eng.ua.edu/eng-directory/dr-kasra-momeni/), University of Alabama* (`kmomeni@ua.edu`)
+- *[Hafiz Noman](https://www.iam.kit.edu/mms/Mitarbeiter_5586.php), Karlsruhe Institute of Technology* (`hafiz.noman@kit.edu`)
 - *[Marvin Tegeler](https://openphase-solutions.com/), OpenPhase Solutions* (`tegeler@openphase-solutions.com`)
 - *[Katsuyo Thornton](https://thorntongroup.engin.umich.edu/), University of Michigan* (`kthorn@umich.edu`)
 - *[Zach Trautt](https://www.nist.gov/people/zachary-trautt), NIST* (`zachary.trautt@nist.gov`)
@@ -27,8 +28,9 @@ If you would like to join this working group then please contact one of the grou
 
 1. [Hackpad from preliminary meeting](https://hackmd.io/i0_rypRqS5WU_I2sI4W2kg), 2023-05-23
 2. [Slides from presentation at Phase Field Working Group](https://slides.com/danielwheeler-1/phase-field-schema-marda), 2023-08-16
-3. [First WG meet](./meeting-minutes/meet-002_2023-09-21.md), 2023-09-21
-4. [Second WG meet](./meeting-minutes/meet-003_2023-10-22.md), 2023-10-22
+3. [September WG meet](./meeting-minutes/meet-002_2023-09-21.md), 2023-09-21
+4. [October WG meet](./meeting-minutes/meet-003_2023-10-20.md), 2023-10-20
+5. [November WG meet](./meeting-minutes/meet-004_2023-11-17.md), 2023-11-17
  
 ## Proposal
 
