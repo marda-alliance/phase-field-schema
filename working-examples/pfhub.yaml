@@ -2,10 +2,14 @@
 #  - PhaseField: would be our new schema standard
 #  - test with schema.org validator
 # Also, see https://pages.nist.gov/material-schema/
+# Links
+#  - https://github.com/ESIPFed/science-on-schema.org
+#  - https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Experimental.md#array-gridded-or-coverage-data
+   - https://pages.nist.gov/material-schema/File/
 ---
-type: Simulaton
+type: PhaseFieldResult # Thing > CreativeWork > DataCatalog > PhaseFieldResult
 context: "http://schema.org/"
-id: "https://phasefieldschema.org/#Simulation"
+id: "https://phasefieldschema.org/#PhaseFieldResult"
 
 keywords: ???
 
@@ -13,110 +17,165 @@ dateCreated: ???
 
 description: a
 
-contributor:
+author:
   - type: Person
     ...
 
 problemSpecification: # type???
-  type: MathSolver # ????????
+  type: MathSolver # Thing > CreativeWork > MathSolver
   abstract: "blah"
   description: ""
   keywords:
     - type: DefinedTerm
       name: cahnHilliard
       inDefinedTermSet: https://phasefieldschema.org/equationTerms
+    - type: DefinedTerm
+      name: additiveManufacturing
+      inDefinedTermSet: https://materials.schema.org/terms
   application: none
   identifier: https://pages.nist.gov/benchmark1.a
   version: "1.a"
   mathExpression: # from https://schema.org/MathSolver and takes LaTex or Ascii-Math
     
 implementation:
-  codeRepository:
+  type: SimulationImplementation # Thing > CreativeWork > SoftwareSourceCode > SimulationImplementation
+  codeRepository: "just url"
 
-  softwareDependencies:
-    - type: SoftwareSourceCode # from codemeta.json spec
-      description: 
-      name:
-      codeRespository:
 
-  inputFiles:
-    - type: SoftwareSourceCode  # https://schema.org/Code
-      name: run.py
+
+  targetProduct:
+    - type: SoftwareApplication
       url: 
-    - type: SoftwareSourceCode
-      name: initial_conditions.npz
-      type: application/zip
-      url: 
+      name: fipy
+      softwareVersion:
 
-  descriptors:
-    - type: PropertyValue
-      name: orderOfAccuracy
-      valueReference:
-        type: DefinedTerm
-        inDefinedTermSet: https://phasefieldschema.org/accuracyTerms
-      value: 2
+  temproalDiscretizationScheme: # either text or DefinedTerm
+    - type: DefinedTerm
+
+  commandLineExectuion: text file "python run.py --grid_size 100"
+  
+  spatioalDiscretizationScheme: # either text or DefinedTerm
+  
+  spatialOrderOfAccruacy:
+
+  temporalOrderOfAccuracy
+
+  meshingScheme:
+
+  degreesOfFreedom: number or propertyValue
+
+  linearSolver: # text, SoftwareSourceCode, DefinedTerm
+
+  nonLinearSolver: # text
+
+  memoryUsage:
+
+  wallTime:
+
+  fictiveTime:
+
+  
+    
+  parameters:
+    - type: PropertryValue
+
+
+  numberOfThreads: Number
+  parallelType: DefinedTerm or Text
+  processorArchitecture: DefinedTerm
+
+  
+  
+  
+  
+  
+  
+  # inputFiles:
+  #   - type: SoftwareSourceCode  # https://schema.org/Code
+  #     name: run.py
+  #     url: 
+  #   - type: SoftwareSourceCode
+  #     name: initial_conditions.npz
+  #     type: application/zip
+  #     url: 
+
+  # descriptors:
+  #   - type: PropertyValue
+  #     name: orderOfAccuracy
+  #     valueReference:
+  #       type: DefinedTerm
+  #       inDefinedTermSet: https://phasefieldschema.org/Terms
+  #     value: 2
       
-    - type: PropetryValue
-      name: finiteVolume
-      valueReference:
-        type: DefinedTerm
-        inDefinedTermSet: https://phasefieldschema.org/discretizationTerms
+  #   - type: PropetryValue
+  #     name: finiteVolume
+  #     valueReference:
+  #       type: DefinedTerm
+  #       inDefinedTermSet: https://phasefieldschema.org/discretizationTerms
 
-    - type: PropertyValue
-      name: adaptiveMeshing
-      description: >-
-        "This simulation uses adaptive gridding. The max and min
-        values refer to the degress of freedeom"
-      valueRefernence:
-        type: DefinedTerm
-        inDefinedTermSet: https://phasefieldschema.org/meshingTerms
-      maxValue: 1000000
-      minValue: 10000
+  #   - type: PropertyValue
+  #     name: adaptiveMeshing
+  #     description: >-
+  #       "This simulation uses adaptive gridding. The max and min
+  #       values refer to the degress of freedeom"
+  #     valueRefernence:
+  #       type: DefinedTerm
+  #       inDefinedTermSet: https://phasefieldschema.org/meshingTerms
+  #     maxValue: 1000000
+  #     minValue: 10000
       
-    - type: PropertyValue
-      name: diffusionCoefficient
-      valueReference:
-        type: DefinedTerm
-        inDefinedTermSet: https://phasefieldschema.org/materialTerms
-      description: "the diffusion coefficient is unity for this problem"
-      value: 1.0
-      unitCode: null
+  #   - type: PropertyValue
+  #     name: diffusionCoefficient
+  #     valueReference:
+  #       type: DefinedTerm
+  #       inDefinedTermSet: https://phasefieldschema.org/materialTerms
+  #     description: "the diffusion coefficient is unity for this problem"
+  #     value: 1.0
+  #     unitCode: null
 
-    - type: PropertyValue
-      name: "initial conditions"
-      valueReference:
-        type: DefinedTerm
-        inDefinedTermSet: https://phasefieldschema.org/variables
-        name: PhaseField
-      value: 0.0
+  #   - type: PropertyValue
+  #     name: "initial conditions"
+  #     valueReference:
+  #       type: DefinedTerm
+  #       inDefinedTermSet: https://phasefieldschema.org/variables
+  #       name: PhaseField
+  #     value: 0.0
         
-summary: a
-
-schema:
-  url: ...
-
-contributors:
-  - type: Person
-    ...
-
-
-
 
 # See
 #  - https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/variableMeasured-gridDataset.jsonld
 #  - https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/variableMeasured-gridDataset.jsonld
 #  - https://earth-env-data-science.github.io/lectures/data.html
-datasets: # See https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md
-  - type: Dataset
-    name: "Free energy versus time"
-    description: "Post-processed extensive values for solid fraction and free energy"
-    url: https://zenondo.org/records/1234/data.csv
-    variableMeasured:
-      - type: PropertyValue
+#  - https://digital-preservation.github.io/csv-schema/
+dataset: # See https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md
+   - type: CSVFile # DataSet > CSVFile # File
+     distribution:
+       type: DataDownload
+       url: https://zenondo.org/records/1234/data.csv
+     schema: https://pfhub.org/schemas/free_energy.csvs
+     variablesMeasured:
+       - type: PropertyValue
+         name: free_energy
+         valueReference:
+           - inDefinedTermSet: https://phasefieldschema.org/variables
+             name: FreeEnergy
+         unitText: whatever
+       - type: PropertyValue
+         name: time
+         valueReference:
+           inDefinedTermSet: https://phasefieldschema.org/variables
+           name: Time
+         unitCode:
+          
+
+   - type: DataSet
+     distribution:
+     variablesMeasured
+     - type: PropertyValue
         name: free_energy
         valueReference:
-          inDefinedTermSet: https://phasefieldschema.org/variables
-          name: FreeEnergy
+          - inDefinedTermSet: https://phasefieldschema.org/variables
+            name: FreeEnergy
         unitText: "seconds"
       - type: PropertyValue
         name: time
@@ -130,7 +189,16 @@ datasets: # See https://github.com/ESIPFed/science-on-schema.org/blob/master/gui
           inDefinedTermSet: https://phasefieldschema.org/variables
           name: SolidFraction
         unitText:
-   - type: Dataset
+
+  - type: File
+    description: "Post-processed extensive values for solid fraction and free energy"
+    distribution:
+      type: DataDownload
+      controlUrl: https://zenondo.org/records/1234/data.csv
+      name: data.csv
+    parameterControlled:
+      
+   - type: File
      name: "Initial Conditions"
      description: "Field of initial conditions used in this simulation"
      url: https://zenondo.org/records/1234/data.??? # netcdf file for example
@@ -140,7 +208,8 @@ datasets: # See https://github.com/ESIPFed/science-on-schema.org/blob/master/gui
          valueReference:
            inDefinedTermSet: https://phasefieldschema.org/variables
            name: PhaseField
-   
+   - type: TabularDataPackage # https://pages.nist.gov/material-schema/TabularDataPackage/
+     description: 
 
      
          
