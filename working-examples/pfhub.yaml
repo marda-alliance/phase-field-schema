@@ -20,10 +20,10 @@
 #   - Thing > CreativeWork > DataCatalog > PhaseFieldResult
       - Mostly just a DataCatalog
       - Gets "dataset" propertry for free
-      - We add "problemSpecification" and "implemenation" properties
+      - We add "problemSpecification" and "implementation" properties
 #   - Thing > CreativeWork > SoftwareSourceCode > SimulationImplementation
 #     - We need some way to add the metadata that we're interested in
-#   - There really are no types that fit with what we need from any of the schemas that iv'e observed.
+#   - There really are no types that fit with what we need from any of the schemas that I have observed.
 #   
 # 2. The problemSpecification property is just a "MathSolver" type.
 #
@@ -43,8 +43,12 @@
 #    useless)
 #
 # 5. Introduce a new type "SimulationImplemenation", which would have
-#    many fields realted to our interests.
+#    many fields related to our interests.
 #
+# 6. There seem to be a CSV schema and also TabularDataPackage type from Materials schema
+#
+#    - TabularDataPackage
+#    - File
 ---
 type: PhaseFieldResult # Thing > CreativeWork > DataCatalog > PhaseFieldResult
 context: "http://schema.org/"
