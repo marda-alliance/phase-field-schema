@@ -1,11 +1,50 @@
-# Use here
-#  - PhaseField: would be our new schema standard
-#  - test with schema.org validator
-# Also, see https://pages.nist.gov/material-schema/
-# Links
-#  - https://github.com/ESIPFed/science-on-schema.org
-#  - https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Experimental.md#array-gridded-or-coverage-data
-   - https://pages.nist.gov/material-schema/File/
+# This is a preliminary attempt at generating a schema for phase field
+# results based as much as possible on schema.org
+#
+# The following resources were used to inform and help
+#
+#   - https://pages.nist.gov/material-schema/
+#   - https://schema.org
+#   - https://github.com/ESIPFed/science-on-schema.org
+#   - https://bioschemas.org
+#   - https://github.com/usnistgov/pfhub-schema
+#   - https://github.com/digital-preservation/csv-schema
+#   - https://digital-preservation.github.io/csv-schema
+#   - https://pages.nist.gov/material-schema/types/
+#   - https://bioschemas.org/groups/Workflow
+#
+# Questions.
+#
+# 1. What are two new types that we need to create?
+#
+#   - Thing > CreativeWork > DataCatalog > PhaseFieldResult
+      - Mostly just a DataCatalog
+      - Gets "dataset" propertry for free
+      - We add "problemSpecification" and "implemenation" properties
+#   - Thing > CreativeWork > SoftwareSourceCode > SimulationImplementation
+#     - We need some way to add the metadata that we're interested in
+#   - There really are no types that fit with what we need from any of the schemas that iv'e observed.
+#   
+# 2. The problemSpecification property is just a "MathSolver" type.
+#
+#   - Thing > CreativeWork > MathSolver
+#   - This type is a CreativeWork with a mathExperssion propertry
+#   - Do we need something better
+#   - Should we expand this?
+#
+# 3. How would the schema be used?
+#
+#     - The schema would be used in many different ways depending on
+#       context and the use case
+#     - Requires use cases to implement DefinedTerms and links for
+#       sturcutred values
+#
+# 4. What about CompuatationalWorkflow type from bioschemas (seems
+#    useless)
+#
+# 5. Introduce a new type "SimulationImplemenation", which would have
+#    many fields realted to our interests.
+#
 ---
 type: PhaseFieldResult # Thing > CreativeWork > DataCatalog > PhaseFieldResult
 context: "http://schema.org/"
@@ -64,7 +103,7 @@ implementation:
 
   degreesOfFreedom: number or propertyValue
 
-  linearSolver: # text, SoftwareSourceCode, DefinedTerm
+  linearSolver: # text, SoftwareSourceCode, DefinedTerm, StructuredValue???
 
   nonLinearSolver: # text
 
