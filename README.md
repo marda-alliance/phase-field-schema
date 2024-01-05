@@ -14,6 +14,7 @@ Organizational material for the MaRDA working group focused on developing and im
 - *[Trevor Keller](https://www.nist.gov/people/trevor-keller), NIST* (`trevor.keller@nist.gov`)
 - *[Kasra Momeni](https://eng.ua.edu/eng-directory/dr-kasra-momeni/), University of Alabama* (`kmomeni@ua.edu`)
 - *[Hafiz Noman](https://www.iam.kit.edu/mms/Mitarbeiter_5586.php), Karlsruhe Institute of Technology* (`hafiz.noman@kit.edu`)
+- *[Michael Selzer](https://www.iam.kit.edu/mms/Mitarbeiter_selzer.php), Karlsruhe Institute of Technology* (`michael.selzer@kit.edu`)
 - *[Marvin Tegeler](https://openphase-solutions.com/), OpenPhase Solutions* (`tegeler@openphase-solutions.com`)
 - *[Katsuyo Thornton](https://thorntongroup.engin.umich.edu/), University of Michigan* (`kthorn@umich.edu`)
 - *[Zach Trautt](https://www.nist.gov/people/zachary-trautt), NIST* (`zachary.trautt@nist.gov`)
