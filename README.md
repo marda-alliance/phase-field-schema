@@ -29,11 +29,11 @@ If you would like to join this working group then please contact one of the grou
 
 1. [Hackpad from preliminary meeting](https://hackmd.io/i0_rypRqS5WU_I2sI4W2kg), 2023-05-23
 2. [Slides from presentation at Phase Field Working Group](https://slides.com/danielwheeler-1/phase-field-schema-marda), 2023-08-16
-3. [September WG meet](./meeting-minutes/meet-002_2023-09-21.md), 2023-09-21
-4. [October WG meet](./meeting-minutes/meet-003_2023-10-20.md), 2023-10-20
-5. [November WG meet](./meeting-minutes/meet-004_2023-11-17.md), 2023-11-17
-6. [December WG meet](./meeting-minutes/meet-005_2023-12-15.md), 2023-12-15
-7. [January WG meet](./meeting-minutes/meet-006_2024-01-17.md), 2024-01-17
+3. [September 2023 WG meet](./meeting-minutes/meet-002_2023-09-21.md), 2023-09-21
+4. [October 2023 WG meet](./meeting-minutes/meet-003_2023-10-20.md), 2023-10-20
+5. [November 2023 WG meet](./meeting-minutes/meet-004_2023-11-17.md), 2023-11-17
+6. [December 2023 WG meet](./meeting-minutes/meet-005_2023-12-15.md), 2023-12-15
+7. [January 2024 WG meet](./meeting-minutes/meet-006_2024-01-17.md), 2024-01-17
 
 ## Proposal
 
