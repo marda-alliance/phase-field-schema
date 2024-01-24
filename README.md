@@ -33,7 +33,7 @@ If you would like to join this working group then please contact one of the grou
 4. [October WG meet](./meeting-minutes/meet-003_2023-10-20.md), 2023-10-20
 5. [November WG meet](./meeting-minutes/meet-004_2023-11-17.md), 2023-11-17
 6. [December WG meet](./meeting-minutes/meet-005_2023-12-15.md), 2023-12-15
-7. [January WG meet](./meeting-minutes/meet-005_2024-01-17.md), 2024-01-17
+7. [January WG meet](./meeting-minutes/meet-006_2024-01-17.md), 2024-01-17
 
 ## Proposal
 
