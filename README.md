@@ -9,7 +9,6 @@ Organizational material for the MaRDA working group focused on developing and im
 
 ## Participants
 
-- *[Vahid Attari](https://arroyavelab.tamu.edu/people/vahid-attari/), Texas A&M University* (`attari.v@tamu.edu`)
 - *[Stephen DeWitt](https://www.ornl.gov/staff-profile/steve-j-dewitt), ORNL* (`dewittsj@ornl.gov`)
 - *[Trevor Keller](https://www.nist.gov/people/trevor-keller), NIST* (`trevor.keller@nist.gov`)
 - *[Kasra Momeni](https://eng.ua.edu/eng-directory/dr-kasra-momeni/), University of Alabama* (`kmomeni@ua.edu`)
