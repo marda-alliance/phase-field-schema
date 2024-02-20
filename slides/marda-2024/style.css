@@ -1,0 +1,21 @@
+.slidev-layout.cover {
+    padding-right: 12rem !important;
+    padding-left: 12rem !important;
+}
+
+.slidev-layout.center {
+    padding-right: 12rem !important;
+    padding-left: 12rem !important;
+}
+
+.slidev-layout.end {
+    padding-right: 12rem !important;
+    padding-left: 12rem !important;
+}
+
+.slidev-layout.cover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.99)), url("https://raw.githubusercontent.com/usnistgov/pfhub/master/images/banner.png") !important;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
