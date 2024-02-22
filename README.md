@@ -12,6 +12,7 @@ Organizational material for the MaRDA working group focused on developing and im
 - *[Stephen DeWitt](https://www.ornl.gov/staff-profile/steve-j-dewitt), ORNL* (`dewittsj@ornl.gov`)
 - *[Trevor Keller](https://www.nist.gov/people/trevor-keller), NIST* (`trevor.keller@nist.gov`)
 - *[Kasra Momeni](https://eng.ua.edu/eng-directory/dr-kasra-momeni/), University of Alabama* (`kmomeni@ua.edu`)
+- *[David Montiel](https://www.linkedin.com/in/david-montiel-36913733), University of Michigan* (`dmontiel@umich.edu`)
 - *[Hafiz Noman](https://www.iam.kit.edu/mms/Mitarbeiter_5586.php), Karlsruhe Institute of Technology* (`hafiz.noman@kit.edu`)
 - *[Michael Selzer](https://www.iam.kit.edu/mms/Mitarbeiter_selzer.php), Karlsruhe Institute of Technology* (`michael.selzer@kit.edu`)
 - *[Marvin Tegeler](https://openphase-solutions.com/), OpenPhase Solutions* (`tegeler@openphase-solutions.com`)
