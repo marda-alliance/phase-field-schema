@@ -1,0 +1,70 @@
+{
+    "@id": "https://github.com/xueyang94/chimad2_Oswald_Ripening_a/tree/3e22587688ef18ceaa459f16e1e9222a145909d5/",
+    "@context": "https://schema.org/",
+    "@type": "Dataset",
+    "url": "https://pages.nist.gov/pfhub/simulations/display/?sim=moose_2a_xueyang94",
+    "name": "moose_2a_xueyang94",
+    "datePublished": "2019-02-11",
+    "variableMeasured": [
+        {
+            "@type": "PropertyValue",
+            "name": "Memory Usage",
+            "value": 12,
+            "unitText": "GB"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Wall Clock Time",
+            "value": "PT41M47S",
+            "unitText": "ISO 8601 duration format"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Simulation Time",
+            "value": "PT604800S",
+            "unitText": "ISO 8601 duration format"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "CPU Cores",
+            "value": 64
+        }
+    ],
+    "usageInfo": {
+        "@type": "SoftwareApplication",
+        "name": "Multiphysics Object-Oriented Simulation Environment",
+        "alternateName": "MOOSE"
+    },
+    "distribution": [
+        {
+            "@type": "DataDownload",
+            "contentUrl": "https://github.com/xueyang94/chimad2_Oswald_Ripening_a/blob/3e22587688ef18ceaa459f16e1e9222a145909d5/periodic_square.i",
+            "description": "MOOSE style input file to set up domain, equations, BCs, initial conditions, spatial / temporal stepping strategies, materials parameters"
+        },
+        {
+            "@type": "DataDownload",
+            "contentUrl": "https://github.com/xueyang94/chimad2_Oswald_Ripening_a/blob/3e22587688ef18ceaa459f16e1e9222a145909d5/periodic_square_471_out.e",
+            "description": "probably an exodus file (some sort of binary format for meshes). Helps to view the data"
+        },
+        {
+            "@type": "DataDownload",
+            "contentUrl": "https://github.com/xueyang94/chimad2_Oswald_Ripening_a/blob/3e22587688ef18ceaa459f16e1e9222a145909d5/periodic_square_out.csv",
+            "description": "post-processed data relevant to displaying on the PFHub website"
+        },
+        {
+            "@type": "DataDownload",
+            "contentUrl": "https://github.com/xueyang94/chimad2_Oswald_Ripening_a/blob/3e22587688ef18ceaa459f16e1e9222a145909d5/periodic_square_out.e-s4121",
+            "description": "another exodus file probably"
+        },
+        {
+            "@type": "DataDownload",
+            "contentUrl": "https://github.com/xueyang94/chimad2_Oswald_Ripening_a/blob/3e22587688ef18ceaa459f16e1e9222a145909d5/slurm_moose.sh",
+            "description": "shell script for running launching MOOSE job on the cluster"
+        },
+        {
+            "@type": "DataDownload",
+            "contentUrl": "https://github.com/xueyang94/chimad2_Oswald_Ripening_a/blob/3e22587688ef18ceaa459f16e1e9222a145909d5/timestep_47100.png",
+            "description": "A view of the solution variable a long way into the simulation."
+        }
+    ]
+}
