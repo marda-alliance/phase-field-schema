@@ -30,8 +30,8 @@ mdc: true
    to work on this so I'm greatful for that MaRDA is providing these
    working groups and that others the other team members are
    interested.
- - The working group started back in September, but a lot of the initial meetings were
-   about definint the scope
+ - The working group started back in September, but a lot of the
+   initial meetings were about defining the scope
  - We've got the ball rolling more in recent meetings.
  - The working group has now had 6 one hour meetings
  - This will contain some motivation, our current progress and our plans
@@ -119,7 +119,7 @@ layout: center
 - We want to create a standard using current semantic web technology
 - We'd like to adopt this standard for some published used cases that
   I'll described in the next few slides
-- Maybe we could use this as a standard for other materials design or
+- Maybe we could use this as a standard for other materials simulation or
   merge with a wider field of metadata
 
 -->
