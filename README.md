@@ -36,6 +36,7 @@ If you would like to join this working group then please contact one of the grou
 7. [January 2024 WG meet](./meeting-minutes/meet-006_2024-01-17.md), 2024-01-17
 8. [February 2024 WG meet](./meeting-minutes/meet-007_2024-02-15.md), 2024-02-15
 9. [March 2024 WG meet](./meeting-minutes/meet-008_2024-03-27.md), 2024-03-27
+10. [May 2024 WG meet](./meeting-minutes/meet-009_2024-05-29.md), 2024-05-29
 
 ## Proposal
 
