@@ -20,6 +20,7 @@ Organizational material for the MaRDA working group focused on developing and im
 - *[Zach Trautt](https://www.nist.gov/people/zachary-trautt), NIST* (`zachary.trautt@nist.gov`)
 - *[Daniel Wheeler](https://www.nist.gov/people/daniel-wheeler), NIST* (`daniel.wheeler@nist.gov`)
 - *[Olga Wodo](https://engineering.buffalo.edu/materials-design-innovation/community.host.html/content/shared/engineering/materials-design-innovation/profiles/faculty/wodo-olga.html), University at Buffalo* (`olgawodo@buffalo.edu`)
+- *Glenn Tarcea, University of Michigan* (`gtarcea@umich.edu`)
 
 ## Contributing
 
@@ -40,7 +41,7 @@ If you would like to join this working group then please contact one of the grou
 11. [June 2024 WG meet](./meeting-minutes/meet-010_2024-06-26.md), 2024-06-26
 11. [July 2024 WG meet](./meeting-minutes/meet-011_2024-07-31.md), 2024-07-31
 12. [August 2024 WG meet](./meeting-minutes/meet-012_2024-08-28.md), 2024-08-28
-13. [August 2024 WG meet](./meeting-minutes/meet-013_2024-09-25.md), 2024-09-25
+13. [September 2024 WG meet](./meeting-minutes/meet-013_2024-09-25.md), 2024-09-25
 
 ## Proposal
 
