@@ -1,22 +1,23 @@
 [tool.poetry]
-name = "ro-crate-cli"
+name = "benchmark8"
 version = "0.1.0"
-description = "Environment for running ro-crate CLI"
+description = ""
 authors = ["Daniel Wheeler <daniel.wheeler2@gmail.com>"]
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.11"
-rocrate = "^0.11.0"
-frictionless = "^5.18.0"
-toolz = "^1.0.0"
-click = "^8.1.7"
-click-params = "^0.5.0"
+fipy = "^3.4.4"
+rocrate = "^0.10.0"
+numpy = "1.26.4"
+setuptools = "^70.1.0"
+notebook = "^7.2.1"
+frictionless = "^5.17.0"
+toolz = "^0.12.1"
+ipdb = "^0.13.13"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
-[tool.poetry.scripts]
-rocrate-cli = "cli.cli:rocrate_cli"

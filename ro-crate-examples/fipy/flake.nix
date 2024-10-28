@@ -60,8 +60,8 @@
             export PYTHONPATH=$PWD
          '';
        };
-       packages.rocrate-cli = app;
-       packages.default = self.packages.${system}.rocrate-cli;
+       packages.basic = app;
+       packages.default = self.packages.${system}.basic;
       }
     )
   );
