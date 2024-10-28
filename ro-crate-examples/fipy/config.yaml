@@ -1,0 +1,172 @@
+---
+crate-directory: crate
+title: "Phase Field Simulation: Homogeneous Nucleation Benchmark No.8a"
+description: "An example of generating an ro-crate from a PFHub result, for now this is only focused on the computational platform, environment and implementation"
+specification:
+  identifier: https://raw.githubusercontent.com/usnistgov/pfhub/master/benchmarks/benchmark8.ipynb
+  description: >-
+    Phase field modeling of nucleation has a long history and is
+    covered in a number of reviews (Gránásy 2002, Castro 2003, Simmons
+    2004, Gránásy 2007, Warren 2009, Heo 2014, Gránásy 2019). The
+    problem formulation of crystallization of an ideal pure liquid
+    cooled below its melting point starts with homogeneous nucleation,
+    a process in which the internal fluctuations of the undercooled
+    liquid lead to the formation of crystal-like seeds able to grow to
+    macroscopic sizes. The nucleation can be assisted by the presence
+    of surfaces (container walls, foreign particles, etc.), in which
+    case the process is termed heterogeneous nucleation. We note that
+    homogeneous nucleation is an idealized formulation, and it is
+    unlikely homogeneous nucleation occurs, due to impurities present
+    in experimental apparatus. However, creating benchmark problems
+    for homogeneous nucleation is still needed since the focus in
+    nucleation research often lies on the underlying homogeneous
+    nucleation, as it is the basis for advancing theoretical
+    approaches to the much more complex phenomena governing
+    heterogeneous nucleation. This benchmark (benchmark 8) targets
+    homogeneous nucleation while benchmark 9 targets heterogeneous
+    nucleation.
+  keywords:
+    - phase-field
+    - nucleation
+    - benchmark
+    - homogeneous-nucleation
+  name: homogeneous nucleation specification
+  url: https://pages.nist.gov/pfhub/benchmarks/benchmark8.ipynb/index.html
+  encodingFormat: application/x-ipynb+json
+  type: file
+  path: https://raw.githubusercontent.com/usnistgov/pfhub/master/benchmarks/benchmark8.ipynb
+  download: truex
+contexts:
+  - "https://w3id.org/ro/terms/workflow-run/context"
+authors:
+  - name: Daniel Wheeler
+    orcid: https://orcid.org/0000-0002-2653-7418
+    affiliation: NIST
+  - name: Austyn Nguyen
+    orcid: https://orcid.org/0009-0008-2880-8403
+    affiliation: NIST
+license:
+  identifier: "https://spdx.org/licenses/NIST-PD.html"
+  name: "NIST-PD"
+  description: "NIST Public Domain Notice"
+  url: https://github.com/tcheneau/simpleRPL/blob/e645e69e38dd4e3ccfeceb2db8cba05b7c2e0cd3/LICENSE.txt
+outputs:
+  - path: "data/stats.txt"
+    type: file
+    encodingFormat: "text/tab-separated-values"
+    description: "Solid Fraction and Free Energy vs. Time"
+    name: stats.txt
+    columns:
+      - identifier: time
+        description: "Simulation time"
+        unit: s
+        type: float
+        value: "column 1"
+      - identifier: fraction
+        description: "Solid fraction"
+        unit: null
+        type: float
+        value: "column 2"
+      - identifier: energy
+        description: "Free energy"
+        type: float
+        unit: J
+        value: "column 3"
+  - path: "./data/fields"
+    type: directory
+    encodingFormat: application/tar+gzip
+    description: "The phase field variable at various times during the simulation"
+    name: "./fields"
+    columns:
+      - identifier: phaseField
+        description: "Phase field variable"
+        unit: null
+        type: float
+inputs:
+  - path: "data/params8a.yaml"
+    encodingFormat: "text/yaml"
+    name: params8a.yaml
+    description: "Parameter file require to run simulation"
+    download: false
+    columns:
+      - identifier: factor
+        description: "fraction of equilibrium radius"
+        unit: null
+        type: float
+        value: 1.1
+      - identifier: Lx
+        description: "length of Mesh"
+        unit: null
+        type: float
+        value: 100.0
+      - identifier: Ly
+        description: "height of mesh"
+        unit: null
+        type: float
+        value: 100.0
+      - identifier: dx
+        description: "cell spacing"
+        unit: null
+        type: float
+        value: 100.0
+      - identifier: dt
+        description: "timestep"
+        unit: null
+        type: float
+        value: 0.01
+  - path: "https://github.com/wd15/phase-field-nucleation-benchmark/blob/master/fipy/benchmark8a.py"
+    download: true
+    encodingFormat: text/x-script.python
+    name: benchmark8a.py
+    description: "script to run the main simulation"
+  - path: "../pyproject.toml"
+    name: pyproject.toml
+    encodingFormat: application/toml
+    description: "File required to build Python environment using Poetry"
+    download: false
+workflow:
+  startTime:
+  endTime: 
+  name: "Main workflow"
+  creator: https://orcid.org/0000-0002-2653-7418
+  description: "python benchmark8a.py params8a.yaml"
+  agent: https://orcid.org/0009-0008-2880-8403
+implementation:
+  identifier: "https://github.com/wd15/phase-field-nucleation-benchmark/commit/2a7e1778cd2f4988b592f2bd0c84852911111fb7"
+  programmingLanguage: "Python 3.11"
+  description: "FiPy implementation for \"Phase Field Benchmark Problems for Nucleation\""
+  name: phase-field-nucleation-benchmark
+  applicationCategory: Script
+  codeRepository: https://github.com/wd15/phase-field-nucleation-benchmark
+  softwareHelp: https://github.com/wd15/phase-field-nucleation-benchmark/blob/master/README.md
+dependencies:
+  - name: FiPy
+    identifier: "#fipy"
+    version: 3.4.4
+    description: "FiPy is a Finite Volume PDE solver written in Python"
+    url: https://github.com/usnistgov/fipy
+  - name: Numpy
+    identifier: "#numpy"
+    version: 1.26.4
+    description: "Numpy library"
+    url: https://github.com/numpy/numpy
+  - name: Scipy
+    identifier: "#scipy"
+    description: "Scipy library"
+    version: 1.13.1
+    url: https://github.com/scipy/scipy
+
+
+    
+      
+      
+    
+    
+
+    
+    
+  
+
+  
+
+  
