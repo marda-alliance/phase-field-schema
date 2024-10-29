@@ -44,6 +44,8 @@ def generate(config, dest):
       path: path to the config yaml file
       dest: destination directory
     """
+    if os.path.exists(dest):
+        raise click.UsageError(f"The {dest} directory already exists")
     data = read_yaml(config)
     crate = generate_(data, dest, os.path.dirname(config))
 

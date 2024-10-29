@@ -77,7 +77,7 @@ outputs:
     encodingFormat: application/tar+gzip
     description: "The phase field variable at various times during the simulation"
     name: "./fields"
-    columns:
+    columns:2
       - identifier: phaseField
         description: "Phase field variable"
         unit: null

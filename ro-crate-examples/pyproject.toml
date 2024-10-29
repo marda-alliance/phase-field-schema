@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "ro-crate-cli"
+name = "rocrate_cli"
 version = "0.1.0"
 description = "Environment for running ro-crate CLI"
 authors = ["Daniel Wheeler <daniel.wheeler2@gmail.com>"]
@@ -13,10 +13,10 @@ toolz = "^1.0.0"
 click = "^8.1.7"
 click-params = "^0.5.0"
 
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
+
 [tool.poetry.scripts]
-rocrate-cli = "cli.cli:rocrate_cli"
+rocrate-cli = "rocrate_cli.cli:rocrate_cli"
