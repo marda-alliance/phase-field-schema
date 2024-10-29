@@ -21,16 +21,6 @@
         ];
       };
       pypkgs-build-requirements = {
-        petl = [ "setuptools" ];
-        # attrs = [ "hatchling" ];
-        # urllib3 = [ "hatchling" ];
-        # hbreader = [ "setuptools" ];
-        # pytrie = [ "setuptools" ];
-        # url-normalize = [ "poetry-core" ];
-        # cfgraph = [ "setuptools" ];
-        # pytest-logging = [ "setuptools" ];
-        # mkdocs-windmill = [ "setuptools" ];
-        # paginate = [ "setuptools" ];
       };
 
       p2n-overrides = pkgs.poetry2nix.defaultPoetryOverrides.extend (self: super:
@@ -60,8 +50,8 @@
             export PYTHONPATH=$PWD
          '';
        };
-       packages.basic = app;
-       packages.default = self.packages.${system}.basic;
+       packages.rocrate-cli = app;
+       packages.default = self.packages.${system}.rocrate-cli;
       }
     )
   );

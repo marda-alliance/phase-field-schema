@@ -77,13 +77,13 @@ outputs:
     encodingFormat: application/tar+gzip
     description: "The phase field variable at various times during the simulation"
     name: "./fields"
-    columns:2
+    columns:
       - identifier: phaseField
         description: "Phase field variable"
         unit: null
         type: float
 inputs:
-  - path: "data/params8a.yaml"
+  - path: "params8a.yaml"
     encodingFormat: "text/yaml"
     name: params8a.yaml
     description: "Parameter file require to run simulation"
@@ -119,7 +119,7 @@ inputs:
     encodingFormat: text/x-script.python
     name: benchmark8a.py
     description: "script to run the main simulation"
-  - path: "../pyproject.toml"
+  - path: "pyproject.toml"
     name: pyproject.toml
     encodingFormat: application/toml
     description: "File required to build Python environment using Poetry"
