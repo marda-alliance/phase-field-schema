@@ -15,11 +15,13 @@ from the `ro-crate-examples` directory.
 
 ## Usage
 
-Currently there is only one example to test in the `fipy`
-directory. Firstly read `fipy/README.md` to generate the require
-data and then use
+Currently there are two examples to run. The `simple` example can be
+run with,
 
-    $ rocrate_cli generate fipy/config.yaml
+    $ rocrate_cli generate simple/config.yaml --dest simple/crate
 	
-to generate a `crate/` directory with the `ro-crate-metadata.json`
-file and associated data.
+which will generate a `crate/` directory along with the
+`ro-crate-metadata.json` file and associated data. The `fipy` crate
+can be generated in a similar manner, however, it requires the data to
+be generated first. To generate the data follow the instructions in
+`fipy/README.md`.
