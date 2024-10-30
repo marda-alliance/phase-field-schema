@@ -1,0 +1,66 @@
+---
+title: "Simple Example"
+description: "A simple example of using the rocrate-cli tool"
+specification:
+  identifier: specification
+  description: >-
+    A generic specification
+  keywords:
+    - keyword1
+    - keyword2
+    - benchmark
+    - homogeneous-nucleation
+  name: Simple Spec
+contexts:
+  - "https://w3id.org/ro/terms/workflow-run/context"
+authors:
+  - name: Daniel Wheeler
+    orcid: https://orcid.org/0000-0002-2653-7418
+    affiliation: NIST
+license:
+  identifier: "https://spdx.org/licenses/NIST-PD.html"
+  name: "NIST-PD"
+  description: "NIST Public Domain Notice"
+  url: https://github.com/tcheneau/simpleRPL/blob/e645e69e38dd4e3ccfeceb2db8cba05b7c2e0cd3/LICENSE.txt
+outputs:
+  - path: "free_energy_1a.csv"
+    type: file
+    encodingFormat: "text/tab-separated-values"
+    description: "Free energy versus time"
+    name: stats.txt
+    columns:
+      - identifier: x
+        description: "Simulation time"
+        unit: s
+        type: float
+        value: "column 1"
+      - identifier: y
+        description: "Free energy"
+        type: float
+        unit: J
+        value: "column 3"
+      - identifier: data_set
+        description: "Data identifier"
+        type: string
+        value: "column 3"
+workflow:
+  startTime: "Tue Oct 29 01:57:45 PM EDT 2024"
+  endTime: "Tue Oct 29 01:58:02 PM EDT 2024" 
+  name: "Main workflow"
+  description: "Run a simple workflow"
+
+
+
+    
+      
+      
+    
+    
+
+    
+    
+  
+
+  
+
+  

@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "fipy-example"
+version = "0.1.0"
+description = "Use FiPy to solve BM8"
+authors = ["Daniel Wheeler <daniel.wheeler2@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fipy = "^3.4.4"
+setuptools = "^75.3.0"
+pyyaml = "^6.0.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
