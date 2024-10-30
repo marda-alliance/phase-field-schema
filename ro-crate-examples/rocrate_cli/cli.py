@@ -142,7 +142,7 @@ def add_column(path, crate, column):
     crate.add_jsonld({
         "@id": identifier,
         "@type": "PropertyValue",
-        "unitCode": column["unit"],
+        "unitCode": column.get("unit", None),
         "name": column["identifier"],
         "description": column["description"],
         "value": column.get("value", None)
@@ -161,7 +161,7 @@ def add_columns(columns, path, crate):
                 
 @curry
 def add_tabular_file(file, basepath, crate):
-    if file['type'] == "directory":
+    if file["type"] == "directory":
         return crate.add_directory(
             makeabs(basepath, file["path"]),
             properties={
@@ -172,13 +172,13 @@ def add_tabular_file(file, basepath, crate):
             }
         )
     else:
-        return  crate.add_file(
-            makeabs(basepath, file["path"]),
+        return crate.add_file(
+            makeabs(basepath, file.get("path", "./")),
             fetch_remote=file.get("download", False),
             properties={
                 "@type": ["File", "Dataset"],
                 "description": file["description"],
-                "encodingFormat": file["encodingFormat"],
+                "encodingFormat": file.get("encodingFormat", None),
                 "name": file["name"],
                 "url": file.get("url", None),
                 "keywords": file.get("keywords", None),
@@ -252,9 +252,10 @@ def add_workflow(workflow, inputs, outputs, implementation, dependencies, basepa
 
     workflow_["result"] = outputs_
     workflow_["object"] = inputs_
-    workflow_["agent"] = {"@id": workflow["agent"]}
+    workflow_["agent"] = {"@id": workflow.get("agent", None)}
 
-    workflow_["instrument"] = add_implementation(implementation, dependencies, crate)
+    if implementation is not None:
+        workflow_["instrument"] = add_implementation(implementation, dependencies, crate)
 
     
     return set_root("mentions", workflow_, crate)
@@ -286,7 +287,19 @@ def make_run_crate(crate):
 
 @curry
 def add_spec(spec, basepath, crate):
-    spec_ = add_tabular_file(spec, basepath, crate)
+    if "path" in spec:
+        spec_ = add_tabular_file(spec, basepath, crate)
+    else:
+        crate.add(Entity(
+        crate,
+            identifier="specification",
+            properties={
+                "@type": ["File", "Dataset"],
+                "description": spec["description"],
+                "name": spec["name"],
+                "keywords": spec["keywords"],
+            }
+        ))
     return crate
 
 def debug(x):
@@ -303,7 +316,14 @@ def generate_(data, dest, basepath):
         set_root('title', data['title']),
         add_authors(data['authors']),
         add_license(data['license']),
-        add_workflow(data['workflow'], data['inputs'], data['outputs'], data['implementation'], data['dependencies'], basepath),
+        add_workflow(
+            data['workflow'],
+            data.get('inputs', []),
+            data['outputs'],
+            data.get("implementation", None),
+            data.get("dependencies", []),
+            basepath
+        ),
         add_spec(data["specification"], basepath),
         lambda x: x.write(dest)
     )
