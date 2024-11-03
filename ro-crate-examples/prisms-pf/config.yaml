@@ -1,0 +1,259 @@
+---
+crate-directory: crate1
+title: "Phase Field Simulation: Directional Alloy Solidification"
+description: "An example of generating an ro-crate from a PRISMS-PF application, for now this is only focused on the computational platform, environment and implementation"
+specification:
+  identifier: https://github.com/prisms-center/phaseField/blob/master/applications/alloySolidification
+  description: >-
+    This application implements a simple model to simulate the directional solidification of a binary alloy
+    A-B in the dilute limit, where component B is acting as a solute in a matrix of A. The implemented model was 
+    introduced by Echabarria et al. [B. Echebarria, R. Folch, A. Karma, and M. Plapp, Phys. Rev. E 70, 061604 (2004)]. 
+    In this model, latent heat is assumed to diffuse much faster than impurities and, therefore, the temperature field is considered 
+    to be fixed by external conditions. In the default settings of the application, the simulation starts with a circular solid in 
+    the corner of an elongated system which evolves as a system is cooled under a uniform thermal gradient and constant cooling 
+    rate. As this seed grows, three variables are tracked, an order parameter, phi, that denotes whether the material a liquid 
+    (phi=-1) or solid (phi=1), a dimensionless supersaturation, U, and an auxiliary term, xi. In addition, a solute concentration 
+    variable, c, is calculated during post-processing and outputted along the aforementioned variables. 
+  keywords:
+    - phase-field
+    - alloy
+    - directional
+    - solidification
+    - anti-trapping
+  name: alloy solidification specification
+  url: https://github.com/prisms-center/phaseField/tree/master/applications/alloySolidification
+  encodingFormat: application/x-ipynb+json
+  type: file
+  path: https://github.com/prisms-center/phaseField/blob/master/applications/alloySolidification/alloySolidification.pdf
+  download: truex
+contexts:
+  - "https://w3id.org/ro/terms/workflow-run/context"
+authors:
+  - name: David Montiel
+    orcid: https://orcid.org/0000-0003-3775-2735
+    affiliation: University of Michigan
+  - name: Daniel Wheeler
+    orcid: https://orcid.org/0000-0002-2653-7418
+    affiliation: NIST
+  - name: Austyn Nguyen
+    orcid: https://orcid.org/0009-0008-2880-8403
+    affiliation: University of Michigan
+license:
+  identifier: "https://www.gnu.org/licenses/lgpl-3.0.en.html"
+  name: "LGPL"
+  description: "GNU Lesser General Public License"
+  url: https://www.gnu.org/licenses/lgpl-3.0.en.html
+outputs:
+  - path: "./results/integratedFields.txt"
+    type: file
+    encodingFormat: "text/tab-separated-values"
+    description: "Integrated solute concentration vs. Time"
+    name: integratedFields.txt
+    columns:
+      - identifier: time
+        description: "Simulation time"
+        unit: null
+        type: float
+        value: "column 1"
+      - identifier: concentration
+        description: "Integrated solute concentration"
+        unit: null
+        type: float
+        value: "column 3"
+  - path: "./results/solution-200000.vtu"
+    type: file
+    encodingFormat: vtu
+    description: "Mesh data snapshot the final simulation time for all simulation fields"
+    name: "solution200000.vtu"
+inputs:
+  - path: "./parameters.prm"
+    encodingFormat: "text"
+    name: parameters.prm
+    description: "Parameter file require to run simulation"
+    download: false
+    columns:
+      - identifier: dim
+        description: "Dimensionality of the system"
+        unit: null
+        type: int
+        value: 2
+      - identifier: Lx
+        description: "System Length in the x-direction"
+        unit: null
+        type: float
+        value: 100.0
+      - identifier: Ly
+        description: "System Length in the y-direction"
+        unit: null
+        type: float
+        value: 300.0
+      - identifier: Sx
+        description: "Number of subdivisions in the x-direction"
+        unit: null
+        type: integer
+        value: 1
+      - identifier: Sy
+        description: "Number of subdivisions in the y-direction"
+        unit: null
+        type: integer
+        value: 3
+      - identifier: r0
+        description: "Initial refine factor"
+        unit: null
+        type: integer
+        value: 5
+      - identifier: degree
+        description: "Element degree"
+        unit: null
+        type: integer
+        value: 2
+      - identifier: mesh_adapt
+        description: "Mesh adaptivity"
+        unit: null
+        type: boolean
+        value: true
+      - identifier: max_refinement_level
+        description: "Maximum refinement level"
+        unit: null
+        type: integer
+        value: 7 
+      - identifier: min_refinement_level
+        description: "Minimum refinement level"
+        unit: null
+        type: integer
+        value: 5 
+      - identifier: steps_between_refinement
+        description: "Number of time steps between mesh refinement operations"
+        unit: null
+        type: integer
+        value: 250 
+      - identifier: dt
+        description: "Time step"
+        unit: null
+        type: float
+        value: 0.002
+      - identifier: nsteps
+        description: "Number of time steps"
+        unit: null
+        type: integer
+        value: 20000
+      - identifier: BCs
+        description: "Boundary conditions"
+        unit: null
+        type: string
+        value: "NATURAL"
+      - identifier: epsilon
+        description: "Anisotropy strength"
+        unit: null
+        type: double
+        value: 0.01
+      - identifier: k
+        description: "Solute partition coefficient"
+        unit: null
+        type: double
+        value: 0.14
+      - identifier: c0
+        description: "Initial liquid concentration (c infinity)"
+        unit: null
+        type: double
+        value: 3.0
+      - identifier: lamda
+        description: "Coupling constant"
+        unit: null
+        type: double
+        value: 20.0
+      - identifier: Dtilde
+        description: "Dimensionless diffusivity in the liquid"
+        unit: null
+        type: double
+        value: 12.534
+      - identifier: Vtilde
+        description: "Dimensionless tip velocity"
+        unit: null
+        type: double
+        value: 9.4536
+      - identifier: ltilde
+        description: "Dimensionless thermal length"
+        unit: null
+        type: double
+        value: 21175.7186
+      - identifier: U0
+        description: "Initial constitutional undercooling of the system"
+        unit: null
+        type: double
+        value: -1.0
+      - identifier: U_off 
+        description: "Undercooling offset that determines the initial temperature at the interface"
+        unit: null
+        type: double
+        value: 0.9
+      - identifier: y0
+        description: "Initial solid-liquid interface position relative to the bottom of the system"
+        unit: null
+        type: double
+        value: 5.0
+      - identifier: regval
+        description: "Regularization constant"
+        unit: null
+        type: double
+        value: 1.0e-10
+      - identifier: output_condition
+        description: "Output condition"
+        unit: null
+        type: string
+        value: "EQUAL_SPACING"
+      - identifier: no_outputs
+        description: "Number of outputs"
+        unit: null
+        type: integer
+        value: 20
+      - identifier: no_steps_between_prints
+        description: "Number of time steps between updates being printed to the screen"
+        unit: null
+        type: integer
+        value: 10000
+      - identifier: output_files_base_name
+        description: "Output file name (base)"
+        unit: null
+        type: string
+        value: "results/solution"
+      - identifier: load_from_checkpoint 
+        description: "Flag that determines whether the simulation should start from a checkpoint"
+        unit: null
+        type: boolean
+        value: false
+      - identifier: checkpoint_condition
+        description: "Checkpoint condition"
+        unit: null
+        type: string
+        value: "EQUAL_SPACING"
+      - identifier: no_checkpoints
+        description: "Number of checkpoints"
+        unit: null
+        type: integer
+        value: 
+workflow:
+  dateCreated: "2024-09-24"
+  name: "Main workflow"
+  creator: https://orcid.org/0000-0003-3775-2735
+  description: "mpirun -n 1 ./main"
+  agent: https://orcid.org/0000-0003-3775-2735
+implementation:
+  identifier: "https://github.com/prisms-center/phaseField/tree/master/applications/alloySolidification"
+  programmingLanguage: "C++"
+  description: "PRISMS-PF implementation for alloy solidification"
+  name: phase-field-alloy-solidification-benchmark
+  applicationCategory: Script
+  codeRepository: https://github.com/prisms-center/phaseField/tree/master
+  softwareHelp: https://prisms-center.github.io/phaseField/
+dependencies:
+  - name: deal.II
+    identifier: "#dealii"
+    version: 9.6.0
+    description: "A C++ software library supporting the creation of finite element codes"
+    url: https://www.dealii.org/
+  - name: p4est
+    identifier: "#p4est"
+    version: 2.2
+    description: "Parallel AMR on Forests of Octrees"
+    url: https://www.p4est.org/
