@@ -42,9 +42,6 @@ authors:
   - name: Daniel Wheeler
     orcid: https://orcid.org/0000-0002-2653-7418
     affiliation: NIST
-  - name: Austyn Nguyen
-    orcid: https://orcid.org/0009-0008-2880-8403
-    affiliation: NIST
 license:
   identifier: "https://spdx.org/licenses/NIST-PD.html"
   name: "NIST-PD"
@@ -125,12 +122,29 @@ inputs:
     description: "File required to build Python environment using Poetry"
     download: false
 workflow:
-  startTime:
-  endTime: 
+  startTime: "Mon Nov  4 10:47:55 AM EST 2024"
+  endTime: "Mon Nov  4 10:48:44 AM EST 2024"
   name: "Main workflow"
   creator: https://orcid.org/0000-0002-2653-7418
   description: "python benchmark8a.py params8a.yaml"
-  agent: https://orcid.org/0009-0008-2880-8403
+  agent: https://orcid.org/0000-0002-2653-7418
+  resourceUsage:
+    - identifier: memoryUsage
+      name: "Memory Usage"
+      description: "Memory Usage"
+      unit: MB
+      type: float
+      value: 233.0
+    - identifier: architecture
+      name: "Hardware Architecture"
+      description: "Hardware Architecture"
+      type: str
+      value: CPU
+    - identifier: threads
+      name: "Threads Used"
+      description: "Threads Used"
+      type: int
+      value: 6
 implementation:
   identifier: "https://github.com/wd15/phase-field-nucleation-benchmark/commit/2a7e1778cd2f4988b592f2bd0c84852911111fb7"
   programmingLanguage: "Python 3.11"
