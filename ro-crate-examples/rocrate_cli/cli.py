@@ -243,8 +243,8 @@ def add_workflow(workflow, inputs, outputs, implementation, dependencies, basepa
             "@type": "CreateAction",
             "name": workflow["name"],
             "description": workflow["description"],
-            "endTime": workflow["endTime"],
-            "startTime": workflow["startTime"],
+            "endTime": workflow.get("endTime", None),
+            "startTime": workflow.get("startTime", None),
             "resourceUsage": add_columns(workflow.get("resourceUsage", []), "", crate)
         }
     ))
