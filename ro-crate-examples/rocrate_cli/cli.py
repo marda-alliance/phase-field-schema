@@ -143,7 +143,7 @@ def add_column(path, crate, column):
         "@id": identifier,
         "@type": "PropertyValue",
         "unitCode": column.get("unit", None),
-        "name": column["identifier"],
+        "name": column.get("name", column.get("identifier", None)),
         "description": column["description"],
         "value": column.get("value", None)
     })
@@ -244,7 +244,8 @@ def add_workflow(workflow, inputs, outputs, implementation, dependencies, basepa
             "name": workflow["name"],
             "description": workflow["description"],
             "endTime": workflow["endTime"],
-            "startTime": workflow["startTime"]
+            "startTime": workflow["startTime"],
+            "resourceUsage": add_columns(workflow.get("resourceUsage", []), "", crate)
         }
     ))
     inputs_ = add_files(inputs, crate, basepath)
