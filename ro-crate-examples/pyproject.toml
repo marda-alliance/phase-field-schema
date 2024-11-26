@@ -30,3 +30,9 @@ rocrate-cli = "rocrate_cli.cli:rocrate_cli"
 [tool.pytest.ini_options]
 testpaths = ["rocrate_cli"]
 addopts = "--doctest-modules -r s --cov=rocrate_cli/ --cov-report term-missing --no-cov-on-fail --cov-config .coveragerc"
+
+[tool.flake8]
+ignore = ['E731', 'W503']
+max-line-length = 88
+
+

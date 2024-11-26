@@ -1,5 +1,6 @@
 """Main functions for RO-Crate CLI for phase field simulations
 """
+
 import os
 import urllib
 
@@ -14,6 +15,7 @@ import click
 from . import test as rocrate_cli_test
 
 EPILOG = "See the documentation in the README"
+
 
 @click.group(epilog=EPILOG)
 def rocrate_cli():
@@ -47,8 +49,7 @@ def generate(config, dest):
 
 
 def read_yaml(filepath):
-    """Read a yaml file
-    """
+    """Read a yaml file"""
     with open(filepath, "r", encoding="utf-8") as file:
         yaml_content = yaml.safe_load(file)
     return yaml_content
@@ -56,16 +57,14 @@ def read_yaml(filepath):
 
 @curry
 def set_attr(obj, key, value):
-    """Set an attribute of an object
-    """
+    """Set an attribute of an object"""
     setattr(obj, key, value)
     return obj
 
 
 @curry
 def add_authors(authors, crate):
-    """Add the authors to a crate
-    """
+    """Add the authors to a crate"""
     return pipe(
         authors,
         fmap(
@@ -84,8 +83,7 @@ def add_authors(authors, crate):
 
 @curry
 def add_license(license_, crate):
-    """Add the license to a crate
-    """
+    """Add the license to a crate"""
     return pipe(
         license_,
         lambda x: crate.add(
@@ -112,8 +110,7 @@ def isabs(path):
 
 
 def makeabs(basepath, filename):
-    """Make a file name an absolute path
-    """
+    """Make a file name an absolute path"""
     if isabs(filename):
         return filename
     return os.path.join(basepath, filename)
@@ -121,8 +118,7 @@ def makeabs(basepath, filename):
 
 @curry
 def add_files(files, crate, basepath):
-    """Add a series of files to the crate
-    """
+    """Add a series of files to the crate"""
     return list(
         fmap(
             lambda x: crate.add_file(
@@ -144,8 +140,7 @@ def add_files(files, crate, basepath):
 
 @curry
 def add_column(path, crate, column):
-    """Add a column for table data as a PropertyValue
-    """
+    """Add a column for table data as a PropertyValue"""
     identifier = path + "#" + column["identifier"]
     crate.add_jsonld(
         {
@@ -162,15 +157,13 @@ def add_column(path, crate, column):
 
 @curry
 def add_columns(columns, path, crate):
-    """Add multiple column enitites as PropertyValues
-    """
+    """Add multiple column enitites as PropertyValues"""
     return list(fmap(add_column(path, crate), columns))
 
 
 @curry
 def add_tabular_file(file, basepath, crate):
-    """Add tabular data to a crate
-    """
+    """Add tabular data to a crate"""
     if file["type"] == "directory":
         return crate.add_directory(
             makeabs(basepath, file["path"]),
@@ -202,23 +195,20 @@ def add_tabular_file(file, basepath, crate):
 
 @curry
 def add_tabular_files(files, basepath, crate):
-    """Add files that are tabular data to a crate
-    """
+    """Add files that are tabular data to a crate"""
     return list(fmap(add_tabular_file(basepath=basepath, crate=crate), files))
 
 
 @curry
 def set_root(key, value, crate):
-    """Set a root value
-    """
+    """Set a root value"""
     crate.root_dataset[key] = value
     return crate
 
 
 @curry
 def add_dependency(crate, dependency):
-    """Add a software dependency
-    """
+    """Add a software dependency"""
     return crate.add(
         Entity(
             crate,
@@ -236,15 +226,14 @@ def add_dependency(crate, dependency):
 
 @curry
 def add_implementation(implementation, dependencies, crate):
-    """Add the implementation section
-    """
+    """Add the implementation section"""
     implementation_ = crate.add(
         Entity(
             crate,
             identifier=implementation["identifier"],
             properties={
                 "@type": "SoftwareApplication",
-                "conformsTo": "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE",
+                "conformsTo": "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE",  # noqa: E501 # pylint: disable=line-too-long
                 "description": implementation["description"],
                 "name": implementation["name"],
                 "applicationCategory": implementation["applicationCategory"],
@@ -263,11 +252,8 @@ def add_implementation(implementation, dependencies, crate):
 
 
 @curry
-def add_workflow(
-    data, basepath, crate
-):
-    """Add the workflow entity to the crate
-    """
+def add_workflow(data, basepath, crate):
+    """Add the workflow entity to the crate"""
     workflow = data["workflow"]
     inputs = data.get("inputs", [])
     outputs = data["outputs"]
@@ -307,16 +293,14 @@ def add_workflow(
 
 @curry
 def add_contexts(contexts, crate):
-    """Add the contexts to the crate
-    """
+    """Add the contexts to the crate"""
     # pylint: disable=unnecessary-lambda
     list(fmap(lambda x: crate.metadata.extra_contexts.append(x), contexts))
     return crate
 
 
 def make_run_crate(crate):
-    """Ensure the crate as Workflow Run RO-Crate
-    """
+    """Ensure the crate as Workflow Run RO-Crate"""
     id_ = "https://w3id.org/ro/wfrun/process/0.4"
     set_root("conformsTo", {"@id": id_}, crate)
     crate.add(
@@ -335,8 +319,7 @@ def make_run_crate(crate):
 
 @curry
 def add_spec(spec, basepath, crate):
-    """Add the specification section to the crate
-    """
+    """Add the specification section to the crate"""
     if "path" in spec:
         add_tabular_file(spec, basepath, crate)
     else:
@@ -356,8 +339,7 @@ def add_spec(spec, basepath, crate):
 
 
 def generate_(data, dest, basepath):
-    """Generate the crate
-    """
+    """Generate the crate"""
     return pipe(
         ROCrate(),
         add_contexts(data["contexts"]),
