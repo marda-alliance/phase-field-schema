@@ -43,7 +43,9 @@ If you would like to join this working group then please contact one of the grou
 12. [August 2024 WG meet](./meeting-minutes/meet-012_2024-08-28.md), 2024-08-28
 13. [September 2024 WG meet](./meeting-minutes/meet-013_2024-09-25.md), 2024-09-25
 14. [October 2024 WG meet](./meeting-minutes/meet-014_2024-10-30.md), 2024-10-30
-14. [November 2024 WG meet](./meeting-minutes/meet-015_2024-11-27.md), 2024-11-27
+15. [November 2024 WG meet](./meeting-minutes/meet-015_2024-11-27.md), 2024-11-27
+16. [November 2024 WG meet](./meeting-minutes/meet-016_2025-01-29.md), 2025-01-29
+
 
 ## Proposal
 
