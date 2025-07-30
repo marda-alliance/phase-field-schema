@@ -47,7 +47,8 @@ If you would like to join this working group then please contact one of the grou
 16. [January 2025 WG meet](./meeting-minutes/meet-016_2025-01-29.md), 2025-01-29
 16. [February 2025 WG meet](./meeting-minutes/meet-017_2025-02-26.md), 2025-02-26
 17. [March 2025 WG meet](./meeting-minutes/meet-018_2025-04-02.md), 2025-04-02
-17. [June 2025 WG meet](./meeting-minutes/meet-019_2025-06-25.md), 2025-06-25
+18. [June 2025 WG meet](./meeting-minutes/meet-019_2025-06-25.md), 2025-06-25
+18. [July 2025 WG meet](./meeting-minutes/meet-020_2025-07-30.md), 2025-07-30
 
 
 ## Proposal
