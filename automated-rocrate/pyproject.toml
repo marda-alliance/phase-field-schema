@@ -1,0 +1,25 @@
+[project]
+name = "fipy-wrroc-workflow"
+version = "0.1.0"
+description = "FiPy phase-field benchmarks with automated RO-Crate provenance"
+authors = [
+    { name = "Daniel Wheeler", email = "daniel.wheeler2@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    # Simulation Stack
+    "fipy>=3.4.2",
+    "scipy>=1.11.0",
+    "pyyaml>=6.0.1",
+    
+    # Metadata/Provenance Stack
+    "rocrate>=0.11.0",
+    "frictionless>=5.18.0",
+    "toolz>=1.0.0"
+]
+
+# This tells uv NOT to attempt building the local directory as a wheel
+[tool.uv]
+package = false
+
+
