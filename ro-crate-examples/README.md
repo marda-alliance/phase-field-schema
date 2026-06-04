@@ -25,3 +25,15 @@ which will generate a `crate/` directory along with the
 can be generated in a similar manner, however, it requires the data to
 be generated first. To generate the data follow the instructions in
 `fipy/README.md`.
+
+## Generate an HTML rendering of the RO-Crate
+
+Download and install NPM.
+
+ - npm i -g ro-crate-html￼￼
+ - `npx rochtml .../path/to/ro-crate-metadata.json`
+
+This generates a `ro-crate-preview.html` file in the same directory as
+the JSON file.  Run a simple webserver with `python -m http.server
+8000` in the same directory as the HTML file to view. Go to
+http://0.0.0.0:8000/ to view the data.
