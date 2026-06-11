@@ -21,6 +21,8 @@ import sys
 import yaml
 
 # import datreant.core as dtr
+from fipy_rocrate import WROCManager
+from fipy.tools import parallelComm
 
 import fipy as fp
 from fipy.tools import parallelComm
@@ -58,6 +60,17 @@ with open(yamlfile, 'r') as f:
         params = yaml.load(f, Loader=yaml.FullLoader)
     else:
         params = yaml.load(f)
+
+
+if parallelComm.procID == 0:
+    wroc = WROCManager(
+        run_name="PFHub Benchmark 8a",
+        run_description="Homogeneous Nucleation, single seed",
+        input_yaml=yamlfile,
+        script_path=__file__
+    )
+    wroc.start()
+
 
 
 # ### Set any parameters for interactive notebook
@@ -368,3 +381,9 @@ for until in checkpoints:
 
     if isnotebook:
         viewer.plot()
+
+if parallelComm.procID == 0:
+    wroc.finalize(output_paths=[
+        "data/fields", # Glob the mesh directories
+        "data/stats.txt" # Parse the stats file
+    ])

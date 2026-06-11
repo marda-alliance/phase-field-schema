@@ -23,3 +23,11 @@ dependencies = [
 package = false
 
 
+
+[tool.rocrate.authors]
+# Define domain-specific provenance that standard pyproject.toml omits
+DanielWheeler = { name = "Daniel Wheeler", orcid = "https://orcid.org/0000-0002-2653-7418", affiliation = "National Institute of Standards and Technology" }
+
+[tool.rocrate.license]
+name = "MIT License"
+identifier = "https://spdx.org/licenses/MIT.html"

@@ -33,3 +33,30 @@ To bootstrap the environment and run the benchmark:
    ```bash
    python benchmark8a.py params8a.yaml
    ```
+
+## TODO
+
+# Development Roadmap: WRROC Integration
+
+## Phase 1: Environment Architecture (Completed)
+
+- [x] Consolidate dual Nix flakes into a single `flake-parts` architecture.
+- [x] Migrate dependency resolution from `poetry2nix` to `uv2nix`.
+- [x] Fix `hatchling` build errors by setting `[tool.uv] package = false` for a non-packaged workspace.
+- [x] Verify simulation execution (`benchmark8a.py`) within the unified shell.
+
+## Phase 2: Refactoring Metadata Extraction (Next)
+
+- [ ] **Draft `fipy_rocrate.py`:** Convert the disconnected `cli.py` logic into a stateful `WROCManager` class.
+  - Implement initialization logic to capture prospective config (`params8a.yaml`) and system state.
+  - Implement finalization logic to capture retrospective metrics (wall time, memory utilization, dynamic VTK/HDF5 output paths).
+- [ ] **Instrument `benchmark8a.py`:**
+  - Inject `WROCManager.start()` immediately after configuration parsing.
+  - Inject `WROCManager.finalize()` at the termination of the solver time loop.
+- [ ] **Validate JSON-LD Output:** Ensure `ro-crate-metadata.json` conforms strictly to the WRROC Process Run profile.
+
+## Phase 3: Manuscript Integration (Pending)
+
+- [ ] **Update Section 3.3 (LaTeX):** Document this in-situ Python metadata extraction methodology.
+- [ ] Rewrite the methodology text to emphasize the elimination of manual configuration files in favor of native runtime hooks.
+- [ ] Ensure the LaTeX `\dirtree` figure perfectly matches the final file structure.
