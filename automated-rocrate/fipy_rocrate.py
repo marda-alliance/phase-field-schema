@@ -60,6 +60,8 @@ class WROCManager:
                 )
             )
 
+        script_file = self.crate.add_file(self.script_path, dest_path=self.script_path.name)
+
         # 3. Register Instrument (The Execution Script)
         self.instrument = self.crate.add(
             SoftwareApplication(
@@ -95,6 +97,7 @@ class WROCManager:
 
         self.input_file = self.crate.add_file(
             self.input_yaml,
+            dest_path=self.input_yaml.name, # Ensures it sits at the root of the crate/ dir
             properties={
                 "name": "Simulation Parameters",
                 "encodingFormat": "text/yaml",
@@ -198,8 +201,15 @@ class WROCManager:
                     file_props["encodingFormat"] = "application/gzip"
                     file_props["description"] = "Transient phase-field mesh data"
 
-                results.append(self.crate.add_file(target, properties=file_props))
+                results.append(self.crate.add_file(
+                    source=target,
+                    dest_path=target,
+                    properties=file_props
+                ))
 
         create_action["result"] = results
         self.crate.root_dataset["mentions"] = [create_action]
-        self.crate.write(Path.cwd())
+
+        crate_dir = Path("crate")
+        crate_dir.mkdir(exist_ok=True)
+        self.crate.write(crate_dir)

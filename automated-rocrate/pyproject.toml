@@ -18,16 +18,21 @@ dependencies = [
     "toolz>=1.0.0"
 ]
 
-# This tells uv NOT to attempt building the local directory as a wheel
-[tool.uv]
-package = false
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
 
+# Explicitly tell setuptools which scripts to package so it doesn't look for a src/ dir
+[tool.setuptools]
+py-modules = ["benchmark8a", "fipy_rocrate"]
 
+# --- Custom WRROC Metadata ---
 
 [tool.rocrate.authors]
-# Define domain-specific provenance that standard pyproject.toml omits
 DanielWheeler = { name = "Daniel Wheeler", orcid = "https://orcid.org/0000-0002-2653-7418", affiliation = "National Institute of Standards and Technology" }
 
 [tool.rocrate.license]
 name = "MIT License"
 identifier = "https://spdx.org/licenses/MIT.html"
+
+
