@@ -97,13 +97,61 @@ class WROCManager:
 
         self.input_file = self.crate.add_file(
             self.input_yaml,
-            dest_path=self.input_yaml.name, # Ensures it sits at the root of the crate/ dir
+            dest_path=self.input_yaml.name,
             properties={
                 "name": "Simulation Parameters",
                 "encodingFormat": "text/yaml",
                 "variableMeasured": param_entities
             }
         )
+
+        # 5. Capture Reproducibility Environment Files
+        for env_file in ["pyproject.toml", "uv.lock", "flake.nix"]:
+            path = Path(env_file)
+            if path.exists():
+                encoding = "application/toml" if env_file == "pyproject.toml" else "text/plain"
+                self.crate.add_file(
+                    source=path,
+                    dest_path=path.name,
+                    properties={
+                        "name": f"Environment specification: {env_file}",
+                        "encodingFormat": encoding
+                    }
+                )
+
+        # 6. Link and Download the PFHub Benchmark Specification
+        benchmark_url = "https://github.com/usnistgov/pfhub/raw/master/benchmarks/benchmark8.ipynb"
+        canonical_id = "https://pages.nist.gov/pfhub/benchmarks/benchmark8.ipynb/"
+
+        try:
+            # fetch_remote=True downloads the file into the crate directory for offline use
+            bench_file = self.crate.add_file(
+                source=benchmark_url,
+                fetch_remote=True,
+                properties={
+                    "@id": canonical_id,
+                    "name": "PFHub Benchmark 8: Homogeneous Nucleation",
+                    "encodingFormat": "application/x-ipynb+json",
+                    "url": benchmark_url
+                }
+            )
+            # Semantically declare that this entire simulation is based on this benchmark
+            self.crate.root_dataset["isBasedOn"] = bench_file
+        except Exception as e:
+            print(f"Warning: Could not fetch remote benchmark notebook: {e}")
+            # Fallback to just adding a semantic link if the system is offline (e.g., HPC node)
+            bench_entity = self.crate.add(
+                Entity(
+                    self.crate,
+                    identifier=canonical_id,
+                    properties={
+                        "@type": ["CreativeWork", "SoftwareSourceCode"],
+                        "name": "PFHub Benchmark 8: Homogeneous Nucleation",
+                        "url": benchmark_url
+                    }
+                )
+            )
+            self.crate.root_dataset["isBasedOn"] = bench_entity
 
     def start(self):
         """Invoke at simulation loop init to freeze start time."""
