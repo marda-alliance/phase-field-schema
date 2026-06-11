@@ -2,6 +2,7 @@ import datetime
 import time
 import tomllib
 import yaml
+import sys
 from pathlib import Path
 
 from rocrate.rocrate import ROCrate
@@ -10,12 +11,14 @@ from rocrate.model.person import Person
 from rocrate.model.entity import Entity
 from rocrate.model.contextentity import ContextEntity
 
+import fipy
+
 class WROCManager:
     """
     Stateful lifecycle manager for automated Workflow Run RO-Crate (WRROC) generation.
     Handles prospective metadata parsing and retrospective runtime harvesting.
     """
-    def __init__(self, run_name: str, run_description: str, input_yaml: str, script_path: str):
+    def __init__(self, run_name: str, run_description: str, input_yaml: str, script_path: str, based_on_url: str = None, based_on_id: str = None):
         self.input_yaml = Path(input_yaml)
         self.script_path = Path(script_path)
         self.start_time = None
@@ -62,19 +65,61 @@ class WROCManager:
 
         script_file = self.crate.add_file(self.script_path, dest_path=self.script_path.name)
 
-        # 3. Register Instrument (The Execution Script)
+        # 3. Dynamic Environment Context
+        software_reqs = []
+
+        # Add Python Version
+        python_ver = sys.version.split()[0]
+        software_reqs.append(
+            self.crate.add(
+                SoftwareApplication(
+                    self.crate,
+                    identifier=f"#python-{python_ver}",
+                    properties={"name": "Python", "version": python_ver}
+                )
+            )
+        )
+
+        # Add FiPy Version
+        software_reqs.append(
+            self.crate.add(
+                SoftwareApplication(
+                    self.crate,
+                    identifier=f"#fipy-{fipy.__version__}",
+                    properties={"name": "FiPy", "version": fipy.__version__}
+                )
+            )
+        )
+
+        # Glob Reproducibility Environment Files (*.nix, *.lock, pyproject.toml)
+        env_files = list(Path.cwd().glob("*.nix")) + list(Path.cwd().glob("*.lock")) + [Path("pyproject.toml")]
+        for path in env_files:
+            if path.exists():
+                encoding = "application/toml" if path.name == "pyproject.toml" else "text/plain"
+                env_entity = self.crate.add_file(
+                    source=path,
+                    dest_path=path.name,
+                    properties={
+                        "name": f"Environment specification: {path.name}",
+                        "encodingFormat": encoding
+                    }
+                )
+                software_reqs.append(env_entity)
+
+        # 4. Register Instrument (The Execution Script) and attach requirements
         self.instrument = self.crate.add(
             SoftwareApplication(
                 self.crate,
                 identifier=self.script_path.name,
                 properties={
                     "name": self.script_path.name,
-                    "programmingLanguage": "Python"
+                    "programmingLanguage": "Python",
+                    "softwareRequirements": software_reqs
                 }
             )
         )
 
-        # 4. Parse YAML inputs to PropertyValues
+        # 5. Parse YAML inputs to PropertyValues
         with open(self.input_yaml, "r") as f:
             self.params = yaml.safe_load(f)
 
@@ -105,53 +150,34 @@ class WROCManager:
             }
         )
 
-        # 5. Capture Reproducibility Environment Files
-        for env_file in ["pyproject.toml", "uv.lock", "flake.nix"]:
-            path = Path(env_file)
-            if path.exists():
-                encoding = "application/toml" if env_file == "pyproject.toml" else "text/plain"
-                self.crate.add_file(
-                    source=path,
-                    dest_path=path.name,
+        # 6. Link and Download external Problem Specification (if provided)
+        if based_on_url and based_on_id:
+            try:
+                bench_file = self.crate.add_file(
+                    source=based_on_url,
+                    fetch_remote=True,
                     properties={
-                        "name": f"Environment specification: {env_file}",
-                        "encodingFormat": encoding
+                        "@id": based_on_id,
+                        "name": run_name,
+                        "encodingFormat": "application/x-ipynb+json",
+                        "url": based_on_url
                     }
                 )
-
-        # 6. Link and Download the PFHub Benchmark Specification
-        benchmark_url = "https://github.com/usnistgov/pfhub/raw/master/benchmarks/benchmark8.ipynb"
-        canonical_id = "https://pages.nist.gov/pfhub/benchmarks/benchmark8.ipynb/"
-
-        try:
-            # fetch_remote=True downloads the file into the crate directory for offline use
-            bench_file = self.crate.add_file(
-                source=benchmark_url,
-                fetch_remote=True,
-                properties={
-                    "@id": canonical_id,
-                    "name": "PFHub Benchmark 8: Homogeneous Nucleation",
-                    "encodingFormat": "application/x-ipynb+json",
-                    "url": benchmark_url
-                }
-            )
-            # Semantically declare that this entire simulation is based on this benchmark
-            self.crate.root_dataset["isBasedOn"] = bench_file
-        except Exception as e:
-            print(f"Warning: Could not fetch remote benchmark notebook: {e}")
-            # Fallback to just adding a semantic link if the system is offline (e.g., HPC node)
-            bench_entity = self.crate.add(
-                Entity(
-                    self.crate,
-                    identifier=canonical_id,
-                    properties={
-                        "@type": ["CreativeWork", "SoftwareSourceCode"],
-                        "name": "PFHub Benchmark 8: Homogeneous Nucleation",
-                        "url": benchmark_url
-                    }
+                self.crate.root_dataset["isBasedOn"] = bench_file
+            except Exception as e:
+                print(f"Warning: Could not fetch remote benchmark notebook: {e}")
+                bench_entity = self.crate.add(
+                    Entity(
+                        self.crate,
+                        identifier=based_on_id,
+                        properties={
+                            "@type": ["CreativeWork", "SoftwareSourceCode"],
+                            "name": run_name,
+                            "url": based_on_url
+                        }
+                    )
                 )
-            )
-            self.crate.root_dataset["isBasedOn"] = bench_entity
+                self.crate.root_dataset["isBasedOn"] = bench_entity
 
     def start(self):
         """Invoke at simulation loop init to freeze start time."""
@@ -166,7 +192,6 @@ class WROCManager:
                 for line in f:
                     if not line.strip() or line.startswith("#"):
                         continue
-                    # FiPy saves using \t by default
                     headers = [h.strip() for h in line.split("\t")]
                     for h in headers:
                         if h:
@@ -209,7 +234,6 @@ class WROCManager:
             )
         )
 
-        # Log Wall Time
         create_action["resourceUsage"] = [
             self.crate.add(
                 ContextEntity(
@@ -225,7 +249,6 @@ class WROCManager:
             )
         ]
 
-        # Process Outputs Dynamically
         results = []
         for path_str in output_paths:
             p = Path(path_str)
@@ -240,7 +263,6 @@ class WROCManager:
 
                 file_props = {"name": target.name}
 
-                # Auto-inference based on file type
                 if target.suffix == ".txt":
                     file_props["encodingFormat"] = "text/plain"
                     file_props["description"] = "Tabular simulation statistics"

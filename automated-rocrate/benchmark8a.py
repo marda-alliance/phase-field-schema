@@ -61,13 +61,14 @@ with open(yamlfile, 'r') as f:
     else:
         params = yaml.load(f)
 
-
 if parallelComm.procID == 0:
     wroc = WROCManager(
         run_name="PFHub Benchmark 8a",
         run_description="Homogeneous Nucleation, single seed",
         input_yaml=yamlfile,
-        script_path=__file__
+        script_path=__file__,
+        based_on_url="https://github.com/usnistgov/pfhub/raw/master/benchmarks/benchmark8.ipynb",
+        based_on_id="https://pages.nist.gov/pfhub/benchmarks/benchmark8.ipynb/"
     )
     wroc.start()
 
