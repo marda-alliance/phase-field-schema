@@ -60,11 +60,28 @@ outputs:
         unit: null
         type: float
         value: "column 3"
-  - path: "./results/solution-200000.vtu"
-    type: file
-    encodingFormat: vtu
-    description: "Mesh data snapshot the final simulation time for all simulation fields"
-    name: "solution200000.vtu"
+  - path: "./results/vtu"
+    type: directory
+    encodingFormat: text/xml
+    description: "Mesh data snapshots for all simulation fields"
+    name: "/results/vtu/solution-*.vtu"
+    columns:
+      - identifier: U
+        description: "Dimensionless Supersaturation"
+        unit: null
+        type: float
+      - identifier: c
+        description: "Solution Concentration"
+        unit: null
+        type: float
+      - identifier: phi
+        description: "Phase Field"
+        unit: null
+        type: float
+      - identifier: xi
+        description: "Auxiliary Term"
+        unit: null
+        type: float
 inputs:
   - path: "./parameters.prm"
     encodingFormat: "text"

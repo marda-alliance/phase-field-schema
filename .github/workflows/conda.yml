@@ -1,0 +1,26 @@
+---
+name: Test Conda
+on: [push, pull_request]
+jobs:
+  pfhub-conda-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+        shell: bash -l {0}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: mamba-org/setup-micromamba@v1
+        with:
+          environment-name: test-env
+          create-args: >-
+            python=3.10
+            poetry
+      - run: poetry install
+      - env:
+          ZENODO_SANDBOX_API_TOKEN: ${{ secrets.ZENODO_SANDBOX_API_TOKEN }}
+        run: py.test --nbval-lax --cov-fail-under=100
+      - run: |
+          mkdir -p tmp
+          cd tmp
+          pfhub test

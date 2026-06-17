@@ -12,6 +12,12 @@ frictionless = "^5.18.0"
 toolz = "^1.0.0"
 click = "^8.1.7"
 click-params = "^0.5.0"
+pytest = "^8.3.3"
+pytest-cov = "^6.0.0"
+black = "^24.10.0"
+flake8 = "^7.1.1"
+flake8-pyproject = "^1.2.3"
+pylint = "^3.3.1"
 
 [build-system]
 requires = ["poetry-core"]
@@ -20,3 +26,13 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 rocrate-cli = "rocrate_cli.cli:rocrate_cli"
+
+[tool.pytest.ini_options]
+testpaths = ["rocrate_cli"]
+addopts = "--doctest-modules -r s --cov=rocrate_cli/ --cov-report term-missing --no-cov-on-fail --cov-config .coveragerc"
+
+[tool.flake8]
+ignore = ['E731', 'W503']
+max-line-length = 88
+
+
